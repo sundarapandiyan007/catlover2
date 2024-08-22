@@ -1,0 +1,21 @@
+public class SecondLargest {
+
+    public static void main(String[] args) {
+        int[] numbers = {46, 82, 374, 648, 66};
+
+        int largest = numbers[0];
+        int secondLargest = Integer.MIN_VALUE; // Initialize secondLargest to the smallest possible int value
+
+        // Find the largest and second largest
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > largest) {
+                secondLargest = largest; // Update secondLargest if a new largest is found
+                largest = numbers[i];
+            } else if (numbers[i] > secondLargest && numbers[i] != largest) {
+                secondLargest = numbers[i]; // Update secondLargest if a number is larger than it but not the largest
+            }
+        }
+
+        System.out.println("Second largest number: " + secondLargest);
+    }
+}
